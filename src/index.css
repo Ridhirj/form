@@ -86,3 +86,63 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+/* FLEX  */
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* GRID  */
+
+.grid {
+  display: grid;
+}
+
+.even-col {
+  display: grid;
+}
+
+@media only screen and (min-width: 35rem) {
+  .even-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* SPACING  */
+
+.gap {
+  gap: var(--gap, 1rem);
+}
+
+.my {
+  margin-block: var(--my, 1rem);
+}
+
+.mx{
+  margin-inline: var(--mx, 1rem);
+}
+
+.mx-auto {
+  margin-inline: auto
+}
+
+.py {
+  padding-block: var(--py, 1rem);
+}
+
+.px {
+  padding-inline: var(--px, 1rem)
+}
