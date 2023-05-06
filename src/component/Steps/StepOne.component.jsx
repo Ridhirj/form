@@ -1,8 +1,9 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import PageTitle from "../PageTitle";
 
-const StepOne = () => {
+const StepOne = ({ steps, setActive }) => {
 
   const initialValues = {
     name: "",
@@ -19,16 +20,14 @@ const StepOne = () => {
   const handleSubmit = (values, resetForm) => {
     console.log(values);
     resetForm(initialValues);
+    setActive(steps[1])
   }
 
   return (
     <main>
       <div>
-        <div>
-          <h1>Personal info</h1>
-          <p>Please provide your name, email address, and phone number.</p>
-        </div>
-
+      <PageTitle heading={"Personal info"} subHeading={"Please provide your name, email address, and phone number."} />
+      
         <Formik
           initialValues={initialValues}
           validationSchema={validation}

@@ -8,13 +8,13 @@ const Form = () => {
   const getActive = () => {
     switch (active) {
       case steps[0]:
-        return <StepOne />;
+        return <StepOne steps={steps} setActive={setActive} />;
       case steps[1]:
-        return <StepTwo />;
+        return <StepTwo steps={steps} setActive={setActive} />;
       case steps[2]:
-        return <StepThree />;
+        return <StepThree steps={steps} setActive={setActive} />;
       case steps[3]:
-        return <StepFour />;
+        return <StepFour steps={steps} setActive={setActive} />;
       default:
         return;
     }
