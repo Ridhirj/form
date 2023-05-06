@@ -1,9 +1,11 @@
-function App() {
+import React from 'react'
+import Form from './pages/Form'
 
+const App = () => {
   return (
-    <>
-      "hello"
-    </>
+    <div>
+      <Form />
+    </div>
   )
 }
 
