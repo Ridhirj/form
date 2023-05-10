@@ -12,7 +12,7 @@ const Switch = styled.div`
   position: relative;
   width: 65px;
   height: 30px;
-  background: #b3b3b3;
+  background: hsl(213, 96%, 18%);
   border-radius: 32px;
   transition: 300ms all;
 
@@ -35,7 +35,7 @@ const Input = styled.input`
   position: absolute;
 
   &:checked + ${Switch} {
-    background: green;
+    background: hsl(213, 96%, 18%);
 
     &:before {
       transform: translate(32px, -50%);
@@ -43,13 +43,11 @@ const Input = styled.input`
   }
 `;
 
-const ToggleSwitch = () => {
-  const [checked, setChecked] = useState(false);
-  const handleChange = (e) => setChecked(e.target.checked);
+const ToggleSwitch = ({checked, setChecked}) => {
   return (
     <Label>
-      <span>Toggle</span>
-      <Input checked={checked} type="checkbox" onChange={handleChange} />
+      <span>Toggle = {checked.toString()}</span>
+      <Input checked={checked} type="checkbox" onChange={setChecked} />
       <Switch />
     </Label>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageTitle from "../PageTitle";
 import Button from "../Button";
 import PlanCard from "../../component/PlanCard";
@@ -10,13 +10,16 @@ import ToggleSwitch from "../../styles/ToggleSwitch.jsx";
 
 const StepTwo = ({ steps, setActive }) => {
   const { planType, setPlanType } = usePlan();
-  const [toggle, setToggle] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-  const handleToggle = () => {
-    setToggle(!toggle);
-    const plan = toggle ? "yearly":"monthly"
-    setPlanType(plan);
+  const handleToggle = (e) => {
+    setChecked(e.target.checked);
   }
+
+  useEffect(() => {
+    const plan = checked ? "yearly":"monthly"
+    setPlanType(plan);
+  }, [checked])
 
   return (
     <main>
@@ -46,7 +49,7 @@ const StepTwo = ({ steps, setActive }) => {
           />
         </div>
         <div>
-        <ToggleSwitch />
+        <ToggleSwitch checked={checked} setChecked={handleToggle} />
         </div>
         <div>
           <Button text="Go Back" steps={steps} setActive={setActive} to={0} />
