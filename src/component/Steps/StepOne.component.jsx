@@ -26,7 +26,7 @@ const StepOne = ({ steps, setActive }) => {
   return (
     <main>
       <div>
-      <PageTitle heading={"Personal info"} subHeading={"Please provide your name, email address, and phone number."} />
+      <PageTitle heading="Personal info" subHeading="Please provide your name, email address, and phone number." />
       
         <Formik
           initialValues={initialValues}

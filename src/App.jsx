@@ -1,12 +1,15 @@
-import React from 'react'
-import Form from './pages/Form'
+import React from "react";
+import Form from "./pages/Form";
+import PlanProvider from "./context/PlanProvider";
 
 const App = () => {
   return (
-    <div>
-      <Form />
-    </div>
-  )
-}
+    <PlanProvider>
+      <div>
+        <Form />
+      </div>
+    </PlanProvider>
+  );
+};
 
-export default App
+export default App;
