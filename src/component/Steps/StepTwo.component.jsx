@@ -7,15 +7,16 @@ import arcade from "../../../assets/images/icon-arcade.svg";
 import advanced from "../../../assets/images/icon-advanced.svg";
 import pro from "../../../assets/images/icon-pro.svg";
 import ToggleSwitch from "../../styles/ToggleSwitch.jsx";
+import { planName } from "../../context/PlanProvider";
 
 const StepTwo = ({ steps, setActive }) => {
-  const { planType, setPlanType } = usePlan();
+  const { planType, setPlanType, planRate } = usePlan();
   const [checked, setChecked] = useState(() => {
-    return planType === "yearly";
+    return planType === "yr";
   });
 
   useEffect(() => {
-    const plan = checked ? "yearly" : "monthly";
+    const plan = checked ? "yr" : "mo";
     setPlanType(plan);
   }, [checked]);
 
@@ -28,20 +29,20 @@ const StepTwo = ({ steps, setActive }) => {
         />
         <div>
           <PlanCard
-            name="Arcade"
-            planRate={9}
+            name={planName[0]}
+            planRate={`${planRate[0]}/${planType}`}
             freebies="2 months free"
             icon={arcade}
           />
           <PlanCard
-            name="Advanced"
-            planRate={12}
+            name={planName[1]}
+            planRate={`${planRate[1]}/${planType}`}
             freebies="2 months free"
             icon={advanced}
           />
           <PlanCard
-            name="Pro"
-            planRate={15}
+            name={planName[2]}
+            planRate={`${planRate[2]}${planType}`}
             freebies="2 months free"
             icon={pro}
           />

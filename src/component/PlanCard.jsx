@@ -4,17 +4,7 @@ import { usePlan } from "../context/PlanProvider";
 const PlanCard = ({ icon, name, planRate, freebies }) => {
   const { planType } = usePlan();
 
-  const getRate = () => {
-    let rate = "";
-    if (planType === "monthly") {
-      rate = `${planRate}/mo`
-    } else {
-      rate = `${planRate * 10}/yr`
-    }
-    return rate
-  }
-
-  const freeby = planType === "monthly" ? "" : freebies;
+  const freeby = planType === "mo" ? "" : freebies;
 
   return (
     <div>
@@ -24,7 +14,7 @@ const PlanCard = ({ icon, name, planRate, freebies }) => {
       <div>
         <span>{name}</span>
         <span>&#36;
-          {getRate()}
+          {planRate}
         </span>
         <span>{freeby}</span>
       </div>

@@ -5,10 +5,7 @@ import Feature from "../../styles/Feature";
 import Button from "../Button";
 
 const StepThree = ({ steps, setActive }) => {
-  const { planType, setPlanType } = usePlan();
-  const [checked, setChecked] = useState(false);
-  const [checked2, setChecked2] = useState(false);
-  const [checked3, setChecked3] = useState(false);
+  const { addon, addon2, addon3, setAddon, setAddon2, setAddon3 } = usePlan();
 
   return (
     <main>
@@ -22,22 +19,22 @@ const StepThree = ({ steps, setActive }) => {
           title="Online services"
           subTitle="Access to multiplayer games"
           rate={1}
-          checked={checked}
-          setChecked={setChecked}
+          checked={addon}
+          setChecked={setAddon}
         />
         <Feature
           title="Larger storage"
           subTitle="Extra 1TB of cloud save"
           rate={2}
-          checked={checked2}
-          setChecked={setChecked2}
+          checked={addon2}
+          setChecked={setAddon2}
         />
         <Feature
           title="Customizable profile"
           subTitle="Custom theme on your profile"
           rate={2}
-          checked={checked3}
-          setChecked={setChecked3}
+          checked={addon3}
+          setChecked={setAddon3}
         />
       </div>
 
