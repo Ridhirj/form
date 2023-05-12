@@ -10,16 +10,14 @@ import ToggleSwitch from "../../styles/ToggleSwitch.jsx";
 
 const StepTwo = ({ steps, setActive }) => {
   const { planType, setPlanType } = usePlan();
-  const [checked, setChecked] = useState(false);
-
-  const handleToggle = (e) => {
-    setChecked(e.target.checked);
-  }
+  const [checked, setChecked] = useState(() => {
+    return planType === "yearly";
+  });
 
   useEffect(() => {
-    const plan = checked ? "yearly":"monthly"
+    const plan = checked ? "yearly" : "monthly";
     setPlanType(plan);
-  }, [checked])
+  }, [checked]);
 
   return (
     <main>
@@ -49,7 +47,12 @@ const StepTwo = ({ steps, setActive }) => {
           />
         </div>
         <div>
-        <ToggleSwitch checked={checked} setChecked={handleToggle} />
+          <span>Monthly</span>
+          <ToggleSwitch
+            checked={checked}
+            setChecked={(e) => setChecked(e.target.checked)}
+          />
+          <span>Yearly</span>
         </div>
         <div>
           <Button text="Go Back" steps={steps} setActive={setActive} to={0} />

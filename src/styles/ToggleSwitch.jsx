@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 const Label = styled.label`
@@ -43,10 +42,9 @@ const Input = styled.input`
   }
 `;
 
-const ToggleSwitch = ({checked, setChecked}) => {
+const ToggleSwitch = ({ checked, setChecked }) => {
   return (
     <Label>
-      <span>Toggle = {checked.toString()}</span>
       <Input checked={checked} type="checkbox" onChange={setChecked} />
       <Switch />
     </Label>
