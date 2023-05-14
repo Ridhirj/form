@@ -11,7 +11,7 @@ const Feature = ({ title, subTitle, rate, checked, setChecked }) => {
   const { planType } = usePlan();
 
   const getRate = () => {
-    const amount = planType === "monthly" ? `+$${rate}/mo` : `+$${rate * 10}/yr`;
+    const amount = planType === "mo" ? `+$${rate}/mo` : `+$${rate * 10}/yr`;
     return amount;
   };
 
@@ -23,7 +23,7 @@ const Feature = ({ title, subTitle, rate, checked, setChecked }) => {
           name="online-services"
           id="onlineServices"
           checked={checked}
-          onChange={(e) => setChecked(!checked)}
+          onChange={setChecked}
         />
       </div>
       <div>

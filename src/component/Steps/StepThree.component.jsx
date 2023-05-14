@@ -3,9 +3,10 @@ import { usePlan } from "../../context/PlanProvider";
 import PageTitle from "../../component/PageTitle";
 import Feature from "../../styles/Feature";
 import Button from "../Button";
+import { actions } from "../../context/PlanProvider";
 
 const StepThree = ({ steps, setActive }) => {
-  const { addon, addon2, addon3, setAddon, setAddon2, setAddon3 } = usePlan();
+  const { addons, dispatch } = usePlan();
 
   return (
     <main>
@@ -16,25 +17,25 @@ const StepThree = ({ steps, setActive }) => {
 
       <div>
         <Feature
-          title="Online services"
+          title={actions[0]}
           subTitle="Access to multiplayer games"
           rate={1}
-          checked={addon}
-          setChecked={setAddon}
+          checked={addons.addon0}
+          setChecked={() => dispatch({action: actions[0]})}
         />
         <Feature
-          title="Larger storage"
+          title={actions[1]}
           subTitle="Extra 1TB of cloud save"
           rate={2}
-          checked={addon2}
-          setChecked={setAddon2}
+          checked={addons.addon1}
+          setChecked={() => dispatch({action: actions[1]})}
         />
         <Feature
-          title="Customizable profile"
+          title={actions[2]}
           subTitle="Custom theme on your profile"
           rate={2}
-          checked={addon3}
-          setChecked={setAddon3}
+          checked={addons.addon2}
+          setChecked={() => dispatch({action: actions[2]})}
         />
       </div>
 

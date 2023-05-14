@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 
 export const PlanContext = createContext();
 
@@ -8,32 +8,55 @@ export const usePlan = () => {
 
 const PlanProvider = ({ children }) => {
   const [planType, setPlanType] = useState("mo");
-  const [plan, setPlan] = useState(0)
-  const [addon, setAddon] = useState(false);
-  const [addon2, setAddon2] = useState(false);
-  const [addon3, setAddon3] = useState(false);
+  const [plan, setPlan] = useState(0);
 
-  const planRate =
-    planType === "mo" ?
-      [9, 12, 15] :
-      [90, 120, 150];
+  
+  const reducer = (state,{ action }) => {
+    switch (action) {
+      case actions[0]:
+        return {
+          ...state,
+          addon0: !state.addon0
+        }
+      case actions[1]:
+        return {
+          ...state,
+          addon1: !state.addon1
+        }
+      case actions[2]:
+        return {
+          ...state,
+          addon2: !state.addon2
+        }
+    }
+  } 
+
+  const [addons, dispatch] = useReducer(reducer, {
+    addon0: false,
+    addon1: false,
+    addon2: false,
+  });
+
+  const planRate = planType === "mo" ? [9, 12, 15] : [90, 120, 150];
+  const addonsRate = planType === "mo" ? [1, 2, 2] : [10, 20, 20];
 
   const value = {
     planType,
     setPlanType,
+
     plan,
     setPlan,
+    
     planRate,
-    addon,
-    addon2,
-    addon3,
-    setAddon,
-    setAddon2,
-    setAddon3,
+    addonsRate,
+
+    addons,
+    dispatch,
   };
 
   return <PlanContext.Provider value={value}>{children}</PlanContext.Provider>;
 };
 
 export const planName = ["Arcade", "Advanced", "Pro"];
+export const actions = ["Online service", "Larger storage", "Customizable profile"];
 export default PlanProvider;

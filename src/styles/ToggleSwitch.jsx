@@ -3,11 +3,13 @@ import styled from "styled-components";
 const Label = styled.label`
   display: flex;
   align-items: center;
+  // outline: 2px solid black;
+  width: max-content;
   gap: 10px;
   cursor: pointer;
-`;
+  `;
 
-const Switch = styled.div`
+  const Switch = styled.div`
   position: relative;
   width: 65px;
   height: 30px;

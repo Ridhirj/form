@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { StepOne, StepTwo, StepThree, StepFour } from "../component/Steps";
+import { StepOne, StepTwo, StepThree, StepFour, StepFive } from "../component/Steps";
 import FormSteps from "../component/FormStep";
 
 const Form = () => {
   const [active, setActive] = useState(steps[0]);
+  console.log(active);
 
   const getActive = () => {
     switch (active) {
@@ -15,6 +16,8 @@ const Form = () => {
         return <StepThree steps={steps} setActive={setActive} />;
       case steps[3]:
         return <StepFour steps={steps} setActive={setActive} />;
+      case steps[4]:
+        return <StepFive steps={steps} setActive={setActive} />;
       default:
         return;
     }
@@ -30,6 +33,6 @@ const Form = () => {
   );
 };
 
-const steps = ["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY"];
+const steps = ["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY", "Thank You"];
 
 export default Form;
