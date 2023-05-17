@@ -1,12 +1,17 @@
 import React from "react";
 
-const Button = ({ text, type, setActive, steps, to }) => {
-    return (
-        <button
-            onClick={() => setActive(steps[to])}>
-            {text}
-        </button>
-    )
+export const btnType = ["primary", "secondary"];
+
+const Button = ({ text, dataType, setActive, steps, to, classes }) => {
+  return (
+    <button
+      datatype={dataType}
+      onClick={() => setActive(steps[to])}
+      className={classes}
+    >
+      {text}
+    </button>
+  );
 };
 
 export default Button;

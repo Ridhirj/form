@@ -1,0 +1,139 @@
+/* div{
+    outline: 2px solid black;
+} */
+
+input {
+  padding: 0.65rem;
+  border-radius: 5px;
+  margin: 0.25rem 0;
+  border: 1px solid var(--color-primary-200);
+  text-indent: 0.25rem;
+  color: var(--color-neutral-500);
+}
+
+label {
+  color: var(--color-primary-500);
+}
+
+.error {
+  color: tomato;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.container {
+  background: var(--color-neutral-200);
+  display: grid;
+  gap: 2rem;
+  width: min(100% - 2rem, 950px);
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 75em) {
+  .container {
+    grid-template-columns: 18rem 1fr;
+  }
+}
+
+/* Button  */
+
+.button {
+  padding: .85rem 1.85rem;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+  background-color: var(--color-primary-500);
+  border: 0;
+}
+
+.button:hover {
+  opacity: .85;
+}
+
+/* form-step */
+
+.dots {
+  background-color: var(--clr-primary-100);
+  outline: 1px solid var(--color-neutral-200);
+  border-radius: 100vmin;
+  margin: 0.5rem 0;
+  padding: 0.25rem 0.75rem;
+}
+
+.steps {
+  background: url("../../assets/images/bg-sidebar-mobile.svg");
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 10rem;
+  border-radius: 10px;
+  color: var(--color-neutral-200);
+  background-size: cover;
+}
+
+.step-container {
+  justify-content: center;
+  align-items: end;
+}
+
+@media only screen and (min-width: 75em) {
+  .steps {
+    height: 100%;
+    display: block;
+    padding: 2rem;
+    background: url("../../assets/images/bg-sidebar-desktop.svg") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+.list {
+  display: flex;
+  gap: 1rem;
+  margin: 0 .5rem;
+  margin-bottom: 1rem;
+}
+
+.fade-text {
+    font-size: var(--fs-200);
+}
+
+.form-step-name {
+    font-weight: var(--fw-200);
+    font-size: var(--fs-300);
+    letter-spacing: 2px;
+}
+
+.active-list {
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-500);
+    outline: 0;
+    border: 1px solid var(--color-primary-100);
+}
+
+/* step-one  */
+
+.column-2 {
+  padding-inline: 1rem;
+}
+
+.column-2 div {
+  display: flex;
+  flex-direction: column;
+  margin-block: .5rem;
+}
+
+@media only screen and (min-width: 75rem) {
+  .column-2 {
+    padding-inline: 7rem;
+  }
+  .column-2 div {
+    margin-block: 2rem;
+  }
+}

@@ -4,7 +4,6 @@ import FormSteps from "../component/FormStep";
 
 const Form = () => {
   const [active, setActive] = useState(steps[0]);
-  console.log(active);
 
   const getActive = () => {
     switch (active) {
@@ -24,12 +23,14 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <section className="section">
+      <div className="container p">
       <div>
         <FormSteps steps={steps} active={active} setActive={setActive} />
       </div>
       <div>{getActive()}</div>
-    </div>
+      </div>
+    </section>
   );
 };
 

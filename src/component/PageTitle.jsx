@@ -3,8 +3,8 @@ import React from "react";
 const PageTitle = ({ heading, subHeading }) => {
   return (
     <div>
-      <h1>{heading}</h1>
-      <p>{subHeading}</p>
+      <h1 className="primary-heading">{heading}</h1>
+      <p className="fade-text fs-450">{subHeading}</p>
     </div>
   );
 };

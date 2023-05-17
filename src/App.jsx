@@ -1,13 +1,14 @@
 import React from "react";
 import Form from "./pages/Form";
 import PlanProvider from "./context/PlanProvider";
+import "./styles/app.css"
 
 const App = () => {
   return (
     <PlanProvider>
-      <div>
+      <main>
         <Form />
-      </div>
+      </main>
     </PlanProvider>
   );
 };
